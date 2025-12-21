@@ -60,3 +60,37 @@ to document declared human involvement:
 "editorial_notes": "",
 "human_editing_steps": [],
 "human_curated_output": true
+```
+These fields are declarative and do not independently establish
+legal authorship or ownership.
+
+4. Ownership Considerations
+
+Where applicable, copyright may belong to the human author(s)
+who contributed meaningful creative decisions to an image.
+
+AI-generated outputs that are unedited, uncurated, or produced
+without human creative direction may not be eligible for copyright
+protection on their own.
+
+AIFX does not determine ownership and does not resolve disputes.
+
+5. Licensing
+
+Creators may include licensing information within an AIFI container,
+such as:
+
+legal/license.txt
+
+other clearly identified licensing files
+
+Creators and users are responsible for ensuring compliance with
+applicable laws, licenses, and contractual obligations.
+
+Notes
+
+This document is informational only
+
+Legal interpretations vary by jurisdiction
+
+AIFX standards support documentation, not adjudication
