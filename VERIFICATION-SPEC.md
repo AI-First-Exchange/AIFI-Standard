@@ -46,7 +46,7 @@ AIFX-VS **does not assert absolute proof of origin** beyond the documented creat
   "platform_signal": false,
   "signature": null
 }
-
+```
 🔵 Tier 2 — Verified Creator (VC)
 
 Badge: 🔵 VC
