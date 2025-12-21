@@ -1,45 +1,62 @@
-# COPYRIGHT & HUMAN AUTHORSHIP GUIDANCE (AII Standard)
+# COPYRIGHT & HUMAN AUTHORSHIP GUIDANCE
+(AIFI Standard — AI First Exchange / AIFX)
 
-The AI Format Foundation recognizes that copyright protection for AI-assisted works requires meaningful human creative contribution. The AII Standard supports documentation of human authorship through structured metadata, provenance, and workflow history.
+This document provides **non-authoritative guidance** on documenting
+declared human creative involvement in AI-assisted image workflows
+using AIFX formats.
 
-## 1. Human Authorship Requirements
+It does not constitute legal advice and does not guarantee copyright
+eligibility under any jurisdiction.
 
-An AI-generated image may be eligible for copyright if a human:
-- Writes the prompts or textual descriptions
-- Guides style, composition, lighting, color, or emotion
-- Selects or rejects image outputs
-- Edits, enhances, or refines the generated image
-- Combines elements or adds human-created portions
+---
 
-Purely autonomous AI images with no human creative involvement are not copyrightable.
+## 1. Human Creative Contribution (General Guidance)
 
-## 2. How AII Supports Copyright Claims
+In many jurisdictions, copyright protection for AI-assisted images
+depends on the presence of **meaningful human creative contribution**.
 
-AII metadata captures:
-- Creator identity (name, handle, email)
+Such contribution may include, but is not limited to:
+- Writing or refining prompts or textual descriptions
+- Guiding style, composition, lighting, color, or mood
+- Selecting, rejecting, or curating generated outputs
+- Editing, enhancing, or refining AI-generated images
+- Combining AI outputs with human-created elements
+
+Purely autonomous image generation without human creative direction
+may not qualify for copyright protection under current law.
+
+> Interpretation of copyright eligibility is determined by applicable
+> legal authorities and courts, not by AIFX.
+
+---
+
+## 2. How AIFI Supports Documentation
+
+The **AI First Image Format (AIFI)** supports structured documentation
+of declared human involvement through metadata, provenance records,
+and workflow context.
+
+An AIFI image may include:
+- Declared creator identity (name, handle, optional contact details)
 - Human-authored prompts and negative prompts
-- Model and settings used
-- Editing or post-processing decisions
-- Timestamps and provenance trail
+- Model identifiers and generation parameters
+- Editing or post-processing notes
+- Creation timestamps and provenance trail
 
-These fields help demonstrate meaningful human involvement in the creative process.
+These records are intended to support **transparency and contextual
+understanding** of the creative process.
 
-## 3. Recommended Manifest Fields for Legal Compliance
+---
 
-Creators may include these optional fields:
+## 3. Optional Manifest Fields
 
-"human_authorship_statement": "I affirm that I contributed creative authorship...",
-"human_signature": "Name or digital signature hash",
-"creator_email": "email@example.com",
-"editorial_notes": "Summary of human creative decisions."
+Creators MAY include the following optional fields in `manifest.json`
+to document declared human involvement:
 
-
-## 4. Ownership
-
-Copyright belongs to the human author(s) who contributed creative expression.  
-If the work contains only unedited, uncurated AI output, it may not qualify for protection.
-
-## 5. Licensing
-
-Creators may include licensing information in `legal/license.txt` or related files.  
-All distribution must follow applicable legal requirements.
+```json
+"human_authorship_statement": "",
+"human_signature": "",
+"creator_email": "",
+"editorial_notes": "",
+"human_editing_steps": [],
+"human_curated_output": true
