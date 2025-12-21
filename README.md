@@ -1,122 +1,148 @@
-# AII-Standard
-AII (AI Image Format) is an open, ZIP-based standard for AI-generated images. It packages the image, prompts, seeds, model info, variations, settings, licensing, and provenance into a single .aii file, enabling transparent, reproducible AI-native image workflows.
+AIFI — AI First Image Format (.aifi)
+Part of the AI First Exchange (AIFX)
 
-🖼️ AII – AI Image Format
-An open standard for AI-generated images
+AIFI (AI First Image Format) is an open, ZIP-based standard for AI-generated images. It packages the image, prompts, generation parameters, model information, variations, licensing, and declared provenance into a single .aifi file designed for transparent, inspectable, and exchangeable AI-native image workflows.
 
-File extension: .aii
-Version: 1.0.0
+AIFI is the image-level format in the AIFX family, enabling consistent documentation and interoperability across AI art tools, platforms, and archives.
+
+🧩 Relationship to AIFX
+
+AIFI is part of the AI First Exchange (AIFX) family of AI-native formats:
+
+AIFM — AI First Music (.aifm)
+
+AIFV — AI First Video (.aifv)
+
+AIFI — AI First Image (.aifi)
+
+AIFP — AI First Project (.aifp)
+
+AIFI may be used standalone or embedded within an AIFP container as part of a larger multi-asset project.
 
 🎨 Overview
 
-AII (AI Image Format) is an open, ZIP-based container standard for AI-generated images.
-It packages the image file, generation prompts, seeds, metadata, model info, variations, licensing, and provenance into a single .aii container.
+An .aifi file represents a single AI-generated image with structured context.
+It may include:
 
-AII enables transparent attribution, stable reproducibility, and AI-native workflows across editing tools and platforms.
+the final image asset
 
-📦 What’s Inside an .aii File?
+generation prompts and negative prompts
 
-An .aii file is a ZIP container with this structure:
+parameter settings (seed, steps, guidance, resolution, etc.)
+
+model or engine identifiers
+
+optional variations or upscales
+
+licensing information
+
+declared provenance and timestamps
+
+AIFI prioritizes metadata transparency and workflow documentation, without asserting guarantees beyond the recorded creation process.
+
+📦 AIFI Container Structure
+
+An .aifi file is a ZIP container with the following standardized layout:
+
 /
-  manifest.json                     # REQUIRED: core metadata for the image
+  manifest.json                 # REQUIRED: primary image manifest
   image/
-    main.png                        # REQUIRED: primary image (png/jpg/webp)
-    layers/                         # OPTIONAL: separated layer data
-    variations/                     # OPTIONAL: alt renders or upscales
+    main.png                    # REQUIRED: primary image (png/jpg/webp)
+    layers/                     # OPTIONAL: separated layers
+    variations/                 # OPTIONAL: alternate renders or upscales
   prompts/
-    generation.txt                  # OPTIONAL: prompt used
-    negative.txt                    # OPTIONAL
-    metadata.json                   # OPTIONAL: seed, cfg, steps, etc.
+    generation.txt              # OPTIONAL: primary prompt
+    negative.txt                # OPTIONAL: negative prompt
+    metadata.json               # OPTIONAL: seed, steps, CFG, etc.
   model/
-    model_info.json                 # OPTIONAL: engine/model details
+    model_info.json             # OPTIONAL: engine / model details
   legal/
-    license.txt                     # OPTIONAL: licensing terms
-    terms.txt                       # OPTIONAL
+    license.txt                 # OPTIONAL: licensing terms
+    terms.txt                   # OPTIONAL
   extra/
-    notes.md                        # OPTIONAL: custom project notes
-The manifest.json defines model details, prompt sources, metadata, and file paths.
+    notes.md                    # OPTIONAL: creator notes
 
-🧠 Key Features
-✔ Stores AI generation metadata
 
-AII preserves:
+The manifest.json defines declared provenance, metadata references, and file paths.
 
-Prompt & negative prompt
+🧠 Key Capabilities
+✔ AI-Native Metadata Preservation
 
-Seed value
+AIFI may preserve declared generation details such as:
 
-Sampler / guidance settings
+prompt and negative prompt
 
-Steps, CFG, resolution
+seed value (where available)
 
-AI model name & version
+sampler / guidance settings
 
-Generator platform (e.g., Midjourney, Stable Diffusion, DALL·E)
+steps and resolution
 
-Creation timestamp
+AI model or engine identifier
 
-Essential for reproducibility & authenticity.
+declared generation platform
 
-✔ One file for everything
+creation timestamp
 
-A single .aii container includes:
+These fields support inspection, comparison, and archival workflows.
 
-Image
+✔ Single-File Image Exchange
 
-Prompt
+A single .aifi container may include:
 
-Negative prompt
+final image
 
-Seed + settings
+prompts and parameters
 
-Model info
+model references
 
-Variations/upscales
+variations or upscales
 
-Layers (optional)
+licensing and creator metadata
 
-Licensing
+This makes AIFI suitable for sharing, archiving, and platform ingestion.
 
-Creator identity
+✔ Declared Provenance & Attribution
 
-Great for archiving, sharing, and verification.
+AIFI enables documentation of:
 
-✔ Verifiable provenance
+who declared authorship
 
-Ensures transparency around:
+what tools were used
 
-Who generated the image
+under what parameters
 
-With what model
+when the image was generated
 
-Under what parameters
+AIFI records declared provenance and metadata integrity.
+It does not assert absolute origin beyond the documented workflow.
 
-Perfect for:
+✔ Open & Extensible Design
 
-AI art platforms
+AIFI is:
 
-Licensing workflows
+ZIP-based
 
-Editorial verification
+JSON-driven
 
-Dataset labeling
+tool-agnostic
 
-✔ Open & extensible
+forward-compatible
 
-AII uses a ZIP-based architecture, making it easy to:
+Developers may extend AIFI to support:
 
-Add new metadata fields
+new models
 
-Support multiple models
+layered image systems
 
-Extend layer/variation systems
+dataset labeling
 
-Plug into pipelines across creative tools
+editorial or licensing pipelines
 
-📑 manifest.json Structure (Simplified)
+📑 manifest.json (Simplified Example)
 {
-  "aii_version": "1.0.0",
-  "id": "aii-2025-000001",
+  "aifi_version": "1.0.0",
+  "id": "aifi-2025-000001",
   "title": "Sample Image",
   "creator": "CreatorName",
   "resolution": "1024x1024",
@@ -125,7 +151,6 @@ Plug into pipelines across creative tools
 
   "ai_source": {
     "tool_name": "Stable Diffusion",
-    "tool_version": "v1.6",
     "model_name": "SDXL",
     "prompt_source": "prompts/generation.txt",
     "negative_prompt_source": "prompts/negative.txt",
@@ -135,7 +160,7 @@ Plug into pipelines across creative tools
   "provenance": {
     "creator_handle": "YourName",
     "creation_utc": "2025-12-05T12:00:00Z",
-    "tool_chain": ["SDXL", "AII-WRAPPER v1.0"]
+    "tool_chain": ["SDXL", "AIFX Converter v1.0"]
   },
 
   "files": {
@@ -148,49 +173,63 @@ Plug into pipelines across creative tools
   }
 }
 
-🧰 Tools (Coming Soon)
 
-Planned utilities:
+Future versions may optionally include:
 
-aiiwrap — wrap image + prompts into .aii
+persona
 
-aii-validator — check spec compliance
+verification_tier
 
-aiicore — read/write AII containers in code
+signature
+
+integrity_hash
 
 🌐 MIME Type
 
-Recommended MIME type for .aii:
-image/aii
+Proposed MIME type:
+
+image/aifi
+
+🛠 Tooling (Planned)
+
+Planned AIFI utilities:
+
+aifiwrap — package image + metadata into .aifi
+
+aifi-validate — validate files against the spec
+
+aifi-core — libraries for reading/writing AIFI containers
 
 🛠 Use Cases
 
 AI art platforms
 
-Editorial content review
+Editorial review and attribution
 
-Dataset provenance
+Dataset documentation
 
-Layered AI image workflows
+Layered image workflows
 
-Archiving projects with complete prompt history
+Long-term archival of prompt history
 
-Licensing & commercial verification
+Licensing and compliance pipelines
 
 🔄 Versioning
 
-AII uses semantic versioning:
+AIFI follows semantic versioning:
 
-1.x.x — backward compatible
+1.x.x — backward-compatible enhancements
 
-2.x.x — structural or schema changes
+2.x.x — backward-incompatible schema changes
 
-Unknown fields should be ignored for forward compatibility.
+Unknown fields should be safely ignored to maintain compatibility.
 
 📬 Contributing
 
-AII is an open specification, and contributions via issues and pull requests are welcome.
+AIFI is an open specification under the AI First Exchange.
+
+Contributions via issues and pull requests are welcome.
 
 📝 License
 
-Released under the MIT License.
+This specification is released under the MIT License.
