@@ -98,12 +98,12 @@ The manifest.json hash MUST be computed as follows:
 	1.	Remove integrity.hashed_files["manifest.json"]
   
 	2.	Canonical JSON encode using:
-  	•	sort_keys = true
+  	  •	sort_keys = true
 	  •	separators = (",", ":")
 	  •	ensure_ascii = false
   
-  3.	Compute SHA256 of canonical byte
-  4.	Insert the resulting hash back into:
+ 	 3.	Compute SHA256 of canonical byte
+  	 4.	Insert the resulting hash back into:
      
 	  •	integrity.hashed_files["manifest.json"]
 
