@@ -43,7 +43,7 @@ AIFI prioritizes metadata transparency and workflow documentation, without asser
 📦 AIFI Container Structure
 
 An .aifi file is a ZIP container with the following standardized layout:
-
+```
 /
   manifest.json                 # REQUIRED: primary image manifest
   image/
@@ -61,7 +61,7 @@ An .aifi file is a ZIP container with the following standardized layout:
     terms.txt                   # OPTIONAL
   extra/
     notes.md                    # OPTIONAL: creator notes
-
+```
 
 The manifest.json defines declared provenance, metadata references, and file paths.
 
@@ -140,6 +140,7 @@ dataset labeling
 editorial or licensing pipelines
 
 📑 manifest.json (Simplified Example)
+```
 {
   "aifi_version": "1.0.0",
   "id": "aifi-2025-000001",
@@ -172,7 +173,7 @@ editorial or licensing pipelines
     "license_file": "legal/license.txt"
   }
 }
-
+```
 
 Future versions may optionally include:
 
