@@ -7,15 +7,15 @@ AIFI is the image-level format in the AIFX family, enabling consistent documenta
 
 🧩 Relationship to AIFX
 
-AIFI is part of the AI First Exchange (AIFX) family of AI-native formats:
+  AIFI is part of the AI First Exchange (AIFX) family of AI-native formats:
 
-AIFM — AI First Music (.aifm)
+  AIFM — AI First Music (.aifm)
 
-AIFV — AI First Video (.aifv)
+  AIFV — AI First Video (.aifv)
 
-AIFI — AI First Image (.aifi)
+  AIFI — AI First Image (.aifi)
 
-AIFP — AI First Project (.aifp)
+  AIFP — AI First Project (.aifp)
 
 AIFI may be used standalone or embedded within an AIFP container as part of a larger multi-asset project.
 
@@ -23,21 +23,15 @@ AIFI may be used standalone or embedded within an AIFP container as part of a la
 
 An .aifi file represents a single AI-generated image with structured context.
 It may include:
-
-the final image asset
-
-generation prompts and negative prompts
-
-parameter settings (seed, steps, guidance, resolution, etc.)
-
-model or engine identifiers
-
-optional variations or upscales
-
-licensing information
-
-declared provenance and timestamps
-
+```
+  the final image asset
+  generation prompts and negative prompts
+  parameter settings (seed, steps, guidance, resolution, etc.)
+  model or engine identifiers
+  optional variations or upscales
+  licensing information
+  declared provenance and timestamps
+```
 AIFI prioritizes metadata transparency and workflow documentation, without asserting guarantees beyond the recorded creation process.
 
 📦 AIFI Container Structure
@@ -69,76 +63,56 @@ The manifest.json defines declared provenance, metadata references, and file pat
 ✔ AI-Native Metadata Preservation
 
 AIFI may preserve declared generation details such as:
-
+```
 prompt and negative prompt
-
 seed value (where available)
-
 sampler / guidance settings
-
 steps and resolution
-
 AI model or engine identifier
-
 declared generation platform
-
 creation timestamp
-
+```
 These fields support inspection, comparison, and archival workflows.
 
 ✔ Single-File Image Exchange
 
 A single .aifi container may include:
-
+```
 final image
-
 prompts and parameters
-
 model references
-
 variations or upscales
-
 licensing and creator metadata
-
 This makes AIFI suitable for sharing, archiving, and platform ingestion.
-
+```
 ✔ Declared Provenance & Attribution
 
 AIFI enables documentation of:
-
+```
 who declared authorship
-
 what tools were used
-
 under what parameters
-
 when the image was generated
-
+```
 AIFI records declared provenance and metadata integrity.
 It does not assert absolute origin beyond the documented workflow.
 
 ✔ Open & Extensible Design
 
 AIFI is:
-
+```
 ZIP-based
-
 JSON-driven
-
 tool-agnostic
-
 forward-compatible
-
+```
 Developers may extend AIFI to support:
-
+```
 new models
-
 layered image systems
-
 dataset labeling
-
 editorial or licensing pipelines
-
+```
 📑 manifest.json (Simplified Example)
 ```
 {
@@ -178,11 +152,8 @@ editorial or licensing pipelines
 Future versions may optionally include:
 
 persona
-
 verification_tier
-
 signature
-
 integrity_hash
 
 🌐 MIME Type
@@ -194,33 +165,25 @@ image/aifi
 🛠 Tooling (Planned)
 
 Planned AIFI utilities:
-
+```
 aifiwrap — package image + metadata into .aifi
-
 aifi-validate — validate files against the spec
-
 aifi-core — libraries for reading/writing AIFI containers
-
+```
 🛠 Use Cases
-
+```
 AI art platforms
-
 Editorial review and attribution
-
 Dataset documentation
-
 Layered image workflows
-
 Long-term archival of prompt history
-
 Licensing and compliance pipelines
-
+```
 🔄 Versioning
 
 AIFI follows semantic versioning:
 
 1.x.x — backward-compatible enhancements
-
 2.x.x — backward-incompatible schema changes
 
 Unknown fields should be safely ignored to maintain compatibility.
